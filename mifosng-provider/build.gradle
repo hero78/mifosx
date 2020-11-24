@@ -44,11 +44,14 @@ project.ext.mysqlPassword='mysql'
 group = 'org.mifosplatform'
 
 repositories {
-	jcenter()
+	//jcenter()
+    maven{
+        url "https://jcenter.bintray.com/"
+    }
 	maven {
 	url "http://nexus.pentaho.org/content/repositories/pentaho-public-release-repos/"
     }
-	// mavenLocal() // useful for local dev using MariaDB4j SNAPSHOTs (not needed for real-world non-SNAPHOT builds)
+	 mavenLocal() // useful for local dev using MariaDB4j SNAPSHOTs (not needed for real-world non-SNAPHOT builds)
 }
 
 configurations {
@@ -360,8 +363,8 @@ def qualifyVersionIfNecessary(version) {
 }
 
 springBoot {
-    mainClass = 'org.mifosplatform.ServerWithMariaDB4jApplication'
+    mainClass = 'org.mifosplatform.ServerApplication'
 }
 bootRepackage {
-    mainClass = 'org.mifosplatform.ServerWithMariaDB4jApplication'
+    mainClass = 'org.mifosplatform.ServerApplication'
 }
